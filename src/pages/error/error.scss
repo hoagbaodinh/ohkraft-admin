@@ -1,0 +1,17 @@
+.errorContainer {
+  margin: 0 auto;
+  padding: 50px 0;
+  width: 300px;
+
+  h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+  a {
+    color: #800080;
+
+    svg {
+      margin-right: 5px;
+    }
+  }
+}

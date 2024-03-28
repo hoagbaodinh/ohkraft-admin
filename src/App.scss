@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+input,
+button {
+  border: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.MuiTableRow-root:nth-child(odd) {
+  background-color: #f4f8fb;
+}
+.MuiTableCell-root {
+  border: 1px solid rgba(224, 224, 224, 1);
+  color: gray !important;
+}
+.MuiTableCell-head {
+  background-color: #fff !important;
+}
+
+.MuiTableContainer-root {
+  box-shadow: none !important;
+}
+
+.MuiPaper-root {
+  box-shadow: none !important;
+}
