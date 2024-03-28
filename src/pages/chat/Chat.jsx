@@ -24,19 +24,18 @@ const ChatPage = () => {
   socket.emit('addUser', { userId: user?._id, role: 'consultant' });
 
   // Listen socket getMessage
-  useEffect(() => {
-    socket.once('getMessage', (data) => {
-      setArrivalMessage({
-        isConsultant: data.isConsultant,
-        sessionId: data.sessionId,
-        text: data.text,
-        createdAt: Date.now(),
-      });
+
+  socket.on('getMessage', (data) => {
+    setArrivalMessage({
+      isConsultant: data.isConsultant,
+      sessionId: data.sessionId,
+      text: data.text,
+      createdAt: Date.now(),
     });
-    socket.once('getSession', () => {
-      reFetch('session/all-sessions');
-    });
-  }, [reFetch]);
+  });
+  socket.on('getSession', () => {
+    reFetch('session/all-sessions');
+  });
 
   // Sau khi co duoc tin nhan den thi dua vao array messages
   useEffect(() => {
