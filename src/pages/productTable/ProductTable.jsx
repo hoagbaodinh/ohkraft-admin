@@ -13,7 +13,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import formatPrice from '../../util/format-price';
 
-const ProductTable = ({ title }) => {
+const ProductTable = () => {
   const location = useLocation();
   const path = location.pathname.split('/')[1];
 
@@ -56,6 +56,7 @@ const ProductTable = ({ title }) => {
   const rows = list.map((item) => ({
     id: item._id,
     name: item.name,
+    stock: item.stock,
     price: formatPrice(item.price),
     image: item.img1,
     category: item.category,
@@ -82,6 +83,7 @@ const ProductTable = ({ title }) => {
                   <TableRow>
                     <TableCell className="tableCell">ID </TableCell>
                     <TableCell className="tableCell">Name</TableCell>
+                    <TableCell className="tableCell">Stock</TableCell>
                     <TableCell className="tableCell">Price</TableCell>
                     <TableCell className="tableCell">Image</TableCell>
                     <TableCell className="tableCell">Category</TableCell>
@@ -93,6 +95,7 @@ const ProductTable = ({ title }) => {
                     <TableRow key={row.id}>
                       <TableCell className="tableCell">{row.id}</TableCell>
                       <TableCell className="tableCell">{row.name}</TableCell>
+                      <TableCell className="tableCell">{row.stock}</TableCell>
                       <TableCell className="tableCell">{row.price}</TableCell>
                       <TableCell className="tableCell">
                         <img

@@ -32,6 +32,17 @@ const NewUser = ({ edit }) => {
   const handleChange = (e) => {
     setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
+  const handleChangeOption = (e) => {
+    let value;
+    if (e.target.value === 'true') {
+      value = true;
+    } else if (e.target.value === 'false') {
+      value = false;
+    } else {
+      value = e.target.value;
+    }
+    setInfo((prev) => ({ ...prev, [e.target.id]: value }));
+  };
 
   // Submit Handler
   const handleSubmit = async (e) => {
@@ -148,7 +159,7 @@ const NewUser = ({ edit }) => {
             <label>Consultant</label>
             <select
               id="isConsultant"
-              onChange={handleChange}
+              onChange={handleChangeOption}
               value={info.isConsultant}
             >
               <option value={false}>No</option>
@@ -159,7 +170,11 @@ const NewUser = ({ edit }) => {
           {/* is Admin */}
           <div className="formInput">
             <label>Admin </label>
-            <select id="isAdmin" onChange={handleChange} value={info.isAdmin}>
+            <select
+              id="isAdmin"
+              onChange={handleChangeOption}
+              value={info.isAdmin}
+            >
               <option value={false}>No</option>
               <option value={true}>Yes</option>
             </select>
