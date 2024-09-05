@@ -21,9 +21,10 @@ const LoginPage = () => {
     try {
       const res = await axios.post(
         `${process.env.REACT_APP_API}/api/auth/login`,
-        userData
+        userData,
+        { withCredentials: true }
       );
-
+      console.log(res);
       // Check user co phai la tu van vien hay admin hay khong
       if (res.data.userDetails.isAdmin || res.data.userDetails.isConsultant) {
         window.alert('Login successfully');
